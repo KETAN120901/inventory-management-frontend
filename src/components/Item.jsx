@@ -4,7 +4,7 @@ import React from "react";
         props.onDelete(props.id);
 
     }
-    var path =props.name;
+    var path ="items/"+props.name;
     return <div className="item-box"><a href={path} ><div>Item-Name : {props.name}</div><div>Price : {props.price}</div><div>Quantity : {props.quantity}</div></a></div>
  }
  export default Item;
