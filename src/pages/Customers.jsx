@@ -52,6 +52,7 @@ function Customers(){
   .catch(error => {
     console.error('Error sending POST request:', error);
   });
+  return;
   }
   customersarray.reverse();
     return (<div className="home-section"><div>
