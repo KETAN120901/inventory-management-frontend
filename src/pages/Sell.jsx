@@ -97,7 +97,7 @@ const formattedTime = date.toLocaleTimeString(); // Output: '10:30:00 AM'
     item.BuyingPrice=option[0].price;
     
     item.profit=(item.quantity)*(item.SellingPrice-item.BuyingPrice);
-    axios.post('/sell', item)
+    axios.post('https://inventory-manager-api-h3qs.onrender.com/sell', item)
   .then(response => {
     console.log('Response from server:', response.data);
     alert("success")
@@ -108,7 +108,7 @@ const formattedTime = date.toLocaleTimeString(); // Output: '10:30:00 AM'
   
   
   const filteredItem = itemsarray.filter(option => option.name===item.itemName);
-  const path1='/'+filteredItem[0]._id;
+  const path1="https://inventory-manager-api-h3qs.onrender.com"+'/'+filteredItem[0]._id;
   const data={quantity:filteredItem[0].quantity-item.quantity}
   axios.put(path1,data).
   then(response => {
