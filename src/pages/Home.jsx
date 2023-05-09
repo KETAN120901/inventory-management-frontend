@@ -55,7 +55,7 @@ function Home() {
     <section className='home-section'>
     
     <div>
-      <form className='item-form'>
+      <form className='item-form' action='/'>
         <input type="text" placeholder='Item-name' name='name' value={item.name} onChange={handleChange}/>
         <input type="text" placeholder='buying-price' name='price' value={item.price} onChange={handleChange}/>
         <input type="text" placeholder='quantity'name='quantity' value={item.quantity} onChange={handleChange}/>

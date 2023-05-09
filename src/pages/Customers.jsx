@@ -56,7 +56,7 @@ function Customers(){
   }
   customersarray.reverse();
     return (<div className="home-section"><div>
-    <form className='item-form'>
+    <form className='item-form' action="/customers">
       <input type="text" placeholder='Customer-name' name='customerName' value={customer.customerName} onChange={handleChange}/>
       <input type="text" placeholder='Father-name' name='fatherName' value={customer.fatherName} onChange={handleChange}/>
       <input type="text" placeholder='village'name='village' value={customer.village} onChange={handleChange}/>
