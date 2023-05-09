@@ -42,7 +42,7 @@ function Home() {
     })
   }
   function handleClick(event){
-    axios.post('/', item)
+    axios.post('https://inventory-manager-api-h3qs.onrender.com/', item)
   .then(response => {
     // console.log('Response from server:', response.data);
   })
