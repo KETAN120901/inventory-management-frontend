@@ -36,22 +36,22 @@ export default function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route path="https://inventory-management-aa64.onrender.com/" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="https://inventory-management-aa64.onrender.com/sell" element={<Sell />} />
-          <Route path="https://inventory-management-aa64.onrender.com/catalog" element={<Catalog />} />
-          <Route path="https://inventory-management-aa64.onrender.com/transactions" element={<Transactions />} />
-          <Route path="https://inventory-management-aa64.onrender.com/import" element={<Import />} />
-          <Route path="https://inventory-management-aa64.onrender.com/export" element={<Export />} />
-          <Route path="https://inventory-management-aa64.onrender.com/customers" element={<Customers />} />
+          <Route path="sell" element={<Sell />} />
+          <Route path="catalog" element={<Catalog />} />
+          <Route path="transactions" element={<Transactions />} />
+          <Route path="import" element={<Import />} />
+          <Route path="export" element={<Export />} />
+          <Route path="customers" element={<Customers />} />
           <Route path="*" element={<NoPage />} />
-          <Route path="https://inventory-management-aa64.onrender.com/items/:name" element={<ItemProfile />} />
-          <Route path="https://inventory-management-aa64.onrender.com/buy/:name" element={<CustomerProfile />} />
+          <Route path="items/:name" element={<ItemProfile />} />
+          <Route path="buy/:name" element={<CustomerProfile />} />
           {/* <Route path="sell/:name" element={<ItemProfile />} /> */}
           {/* <Route path="transactions/:name" element={<CustomerProfile />} /> */}
-          <Route path="https://inventory-management-aa64.onrender.com/import/:name" element={<CustomerProfile />} />
-          <Route path="https://inventory-management-aa64.onrender.com/export/:name" element={<CustomerProfile />} />
-          <Route path="https://inventory-management-aa64.onrender.com/customers/:name" element={<CustomerProfile />} />
+          <Route path="import/:name" element={<CustomerProfile />} />
+          <Route path="export/:name" element={<CustomerProfile />} />
+          <Route path="customers/:name" element={<CustomerProfile />} />
         </Route>
       </Routes>
     </BrowserRouter>
