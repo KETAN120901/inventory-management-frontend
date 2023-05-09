@@ -4,7 +4,7 @@ import React from "react";
         props.onDelete(props.id);
 
     }
-    var path ="./customers/"+props.customerName;
+    var path ="https://inventory-management-aa64.onrender.com/customers/"+props.customerName;
     return <div className="item-box"><a href={path} ><div>Customer-Name : {props.customerName}</div><div>Father-Name : {props.fatherName}</div><div>Village : {props.village}</div></a></div>
  }
  export default Customer;
