@@ -1,3 +1,5 @@
+// require('dotenv').config();
+
 import React , { useEffect,useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,7 +9,8 @@ import SearchCustomer from "../components/SearchCustomer";
 function Customers(){
     const [customersarray,setcustomersarray] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:5000/customers')
+    
+    axios.get("https://inventory-manager-api-h3qs.onrender.com/customers")
       .then(response => {
         setcustomersarray(response.data);
         

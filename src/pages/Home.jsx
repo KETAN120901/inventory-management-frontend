@@ -7,7 +7,7 @@ import SearchItem from '../components/SearchItem';
 function Home() {
   const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
-    axios.get('http://localhost:5000/')
+    axios.get('https://inventory-manager-api-h3qs.onrender.com/')
       .then(response => {
         setitemsarray(response.data);
         

@@ -32,7 +32,7 @@ function ItemProfile(props){
 const [transactionsarray,settransactionsarray]=useState([]);
 useEffect(() => {
     
-    axios.get('http://localhost:5000/sell')
+    axios.get('https://inventory-manager-api-h3qs.onrender.com/sell')
       .then(response => {
         settransactionsarray(response.data)
         

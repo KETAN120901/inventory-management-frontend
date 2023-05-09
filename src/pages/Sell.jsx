@@ -9,7 +9,7 @@ function Sell() {
   const [customersarray,setcustomersarray] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:5000/')
+    axios.get('https://inventory-manager-api-h3qs.onrender.com/')
       .then(response => {
         setitemsarray(response.data);
         
@@ -25,7 +25,7 @@ function Sell() {
   }, []);
   
   useEffect(() => {
-  axios.get('http://localhost:5000/customers')
+  axios.get('https://inventory-manager-api-h3qs.onrender.com/customers')
   .then(response => {
     setcustomersarray(response.data);
     
