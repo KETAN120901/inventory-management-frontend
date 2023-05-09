@@ -47,7 +47,7 @@ function Customers(){
   function handleClick(event){
     axios.post('https://inventory-manager-api-h3qs.onrender.com/customers', customer)
   .then(response => {
-    console.log('Response from server:', response.data);
+    //console.log('Response from server:', response.data);
   })
   .catch(error => {
     console.error('Error sending POST request:', error);
