@@ -264,9 +264,17 @@ table{
     
     
   }
-  ul{
+  
+ul{
     display: flex;
-  }
-  .sidebar{
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
+.transactions,.customerprofile,.itemprofile {
+    overflow-x: auto;
+}
+.sidebar div,.collapsible-sidebar div{
     overflow-y: auto;
+    overflow-x: auto;
 }

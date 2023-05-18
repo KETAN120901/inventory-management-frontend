@@ -57,13 +57,13 @@ function Nav(){
     
     <div>
       <input type="text" value={inputValue} onInput={handleInputChange} />
-      <ul style={{display:"block",borderRadius:"5px",position:'absolute',backgroundColor:'black',color:'white',height:'200px',overflowY:'auto'}}>
+      {/* <ul style={{display:"block",borderRadius:"5px",position:'absolute',backgroundColor:'black',color:'white',height:'200px',overflowY:'auto'}}>
         {filteredOptions.map(option => (
           <li style={{padding:'7px'}} key={option} onClick={() => handleOptionClick(option)}>
             {option.name}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
 
     

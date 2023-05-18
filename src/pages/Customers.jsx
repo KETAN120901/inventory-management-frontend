@@ -34,7 +34,10 @@ function Customers(){
     id: "",
     customerName:"",
     fatherName:"",
-    village:""
+    village:"",
+    tbuy:"0",
+    tsell:"0",
+    tpro:"0"
   })
   
   function handleChange(event){
@@ -45,16 +48,22 @@ function Customers(){
     })
   }
   function handleClick(event){
-    axios.post('https://inventory-manager-api-h3qs.onrender.com/customers/', customer)
+    axios.post('https://inventory-manager-api-h3qs.onrender.com/customers', customer)
   .then(response => {
-    //console.log('Response from server:', response.data);
+    console.log('Response from server:', response.data);
   })
   .catch(error => {
     console.error('Error sending POST request:', error);
   });
+  
   return;
   }
-  customersarray.reverse();
+  var array=[];
+ var k=0;
+ for(let i=customersarray.length-1;i>=0;i--){
+  array[k]=customersarray[i];
+  k++;
+ }
     return (<div className="home-section"><div>
     <form className='item-form' action="/customers">
       <input type="text" placeholder='Customer-name' name='customerName' value={customer.customerName} onChange={handleChange}/>
@@ -64,7 +73,7 @@ function Customers(){
     </form>
   </div>
   {/* {console.log(customersarray[0].customerName)} */}
-  <SearchCustomer data={customersarray}/>
+  <SearchCustomer data={array}/>
   {/* {customersarray.map(createcustomer)} */}
     </div>)
 }

@@ -6,6 +6,6 @@ import { Outlet, Link } from "react-router-dom";
 
     }
     var path =props.customerName;
-    return <div className="item-box"><Link to={path}><div>Customer-Name : {props.customerName}</div><div>Father-Name : {props.fatherName}</div><div>Village : {props.village}</div></Link></div>
+    return <div className="item-box"><Link to={path}><div>Customer-Name : {props.customerName}</div><div>Father-Name : {props.fatherName}</div><div>Village : {props.village}</div> <div>tpro : {props.tpro}</div></Link></div>
  }
  export default Customer;

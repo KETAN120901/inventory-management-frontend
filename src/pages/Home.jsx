@@ -15,8 +15,9 @@ function Home() {
       .catch(error => {
         console.log(error);
       });
-    
+      
   }, []);
+  //itemsarray.reverse();
     function createitem(item,index){
         return <Item key={index} id={index} onDelete={deleteItem} name={item.name} quantity={item.quantity} price={item.price}/>
     }
@@ -31,7 +32,10 @@ function Home() {
     id: "",
     name:"",
     price:"",
-    quantity:""
+    quantity:"",
+    tbuy:"0",
+    tsell:"0",
+    tpro:"0"
   })
   
   function handleChange(event){
@@ -42,6 +46,7 @@ function Home() {
     })
   }
   function handleClick(event){
+   item.tbuy=(item.price-'0')*(item.quantity-'0')
     axios.post('https://inventory-manager-api-h3qs.onrender.com/', item)
   .then(response => {
     // console.log('Response from server:', response.data);
@@ -49,20 +54,28 @@ function Home() {
   .catch(error => {
     console.error('Error sending POST request:', error);
   });
+  
+
   }
-  itemsarray.reverse();
+ // 
+ var array=[];
+ var k=0;
+ for(let i=itemsarray.length-1;i>=0;i--){
+  array[k]=itemsarray[i];
+  k++;
+ }
   return (
     <section className='home-section'>
     
     <div>
-      <form className='item-form' action='/'>
+      <form className='item-form'>
         <input type="text" placeholder='Item-name' name='name' value={item.name} onChange={handleChange}/>
         <input type="text" placeholder='buying-price' name='price' value={item.price} onChange={handleChange}/>
         <input type="text" placeholder='quantity'name='quantity' value={item.quantity} onChange={handleChange}/>
         <button onClick={handleClick}>Add</button>
       </form>
     </div>
-    <SearchItem data={itemsarray}/>
+    <SearchItem data={array}/>
     {/* {itemsarray.map(createitem)} */}
     
     </section>

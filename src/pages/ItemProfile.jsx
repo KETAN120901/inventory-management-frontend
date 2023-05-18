@@ -5,6 +5,11 @@ import { useParams } from 'react-router-dom'
 import './styles.css' 
 import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
+import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
+import { LinearScale } from 'chart.js';
+
+Chart.register(LinearScale);
 function ItemProfile(props){
 
     const params = useParams()
@@ -49,9 +54,64 @@ useEffect(() => {
   filteredOptions.reverse()
 
  var item={name:"",price:"",quantity:""}
-  {itemsarray.filter(item => item.name.includes(params.name)).map(filteredItem => (
+  {itemsarray.filter(item => item.name===params.name).map(filteredItem => (
     item=filteredItem
   ))}
+      var tpro=0;
+      var tsell=0;
+      var tbuy=0;
+      var data = {
+        labels: [],
+        datasets: [
+          {
+            label: 'Profit',
+            data: [],
+            fill: false,
+            borderColor: 'green',
+            tension: 0.1
+          },
+          {
+            label: 'Sell',
+            data: [],
+            fill: false,
+            borderColor: 'blue',
+            tension: 0.1
+          },
+          {
+            label: 'Buy',
+            data: [],
+            fill: false,
+            borderColor: 'red',
+            tension: 0.1
+          }
+        ]
+      };
+      
+      const options = {
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      };
+      var i=0;
+      filteredOptions.map((t)=>(
+        data.datasets[0].data[i]=(t.profit-'0'),
+        data.datasets[1].data[i]=(t.SellingPrice-'0')*(t.quantity-'0'),
+        data.datasets[2].data[i]=(t.BuyingPrice-'0')*(t.quantity-'0'),
+        data.labels[i]=t.datetime,
+        tpro+=(t.profit-'0'),
+        tsell+=t.SellingPrice*t.quantity,
+        tbuy+=t.BuyingPrice*t.quantity,
+        i++
+      ))
+      
+  
+      
     return (<div className="itemprofile">
           
     <ul>
@@ -84,6 +144,8 @@ useEffect(() => {
     <h1 style={{marginTop:'20px'}}>Item-Name : {item.name}</h1>
         <h1 style={{marginTop:'20px'}}>Buying Price : {item.price}</h1>
         <h1 style={{marginTop:'20px'}}>Quantity : {item.quantity}</h1>
+        <Line data={data} options={options} />
+
         <table>
           <thead>
         <tr><td>Date/Time</td><td>Customer</td><td>Item</td><td>BuyingPrice</td><td>SellingPrice</td><td>Quantity</td><td>Profit</td></tr>
@@ -99,6 +161,15 @@ useEffect(() => {
             <td>{transaction.profit}</td>
         </tr>
     ))}
+    <tr>
+            <td></td>
+            <td>Total buying</td>
+            <td>{tbuy}</td>
+            <td>Total selling</td>
+            <td>{tsell}</td>
+            <td>total profit</td>
+            <td>{tpro}</td>
+        </tr>
         </table></div>)
 }
 export default ItemProfile;
