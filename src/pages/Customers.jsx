@@ -10,7 +10,7 @@ function Customers(){
     const [customersarray,setcustomersarray] = useState([]);
   useEffect(() => {
     
-    axios.get("http://localhost:5000/customers")
+    axios.get("https://inventory-manager-api-h3qs.onrender.com/customers")
       .then(response => {
         setcustomersarray(response.data);
         
@@ -48,7 +48,7 @@ function Customers(){
     })
   }
   function handleClick(event){
-    axios.post('http://localhost:5000/customers', customer)
+    axios.post('https://inventory-manager-api-h3qs.onrender.com/customers', customer)
   .then(response => {
     console.log('Response from server:', response.data);
   })

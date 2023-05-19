@@ -6,7 +6,7 @@ function Nav(){
 
   useEffect(() => {
     // Load options from API when component mounts
-    axios.get('http://localhost:5000')
+    axios.get('https://inventory-manager-api-h3qs.onrender.com')
       .then(response => {
         setOptions(response.data);
         
