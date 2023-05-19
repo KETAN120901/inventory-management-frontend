@@ -8,6 +8,10 @@ const config = {
       filename: 'bundle.js',
       publicPath: '/',
     },
+    devServer: {
+        historyApiFallback: true,
+      }
+      
     // Other configuration options...
   };
   module.exports = config;
