@@ -5,7 +5,7 @@ import './styles.css'
     const [customersarray,setcustomersarray] = useState([]);
   useEffect(() => {
     
-    axios.get("https://inventory-manager-api-h3qs.onrender.com/customers")
+    axios.get("http://localhost:5000/customers")
       .then(response => {
         setcustomersarray(response.data);
         
@@ -22,7 +22,7 @@ import './styles.css'
   const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
     
-    axios.get("https://inventory-manager-api-h3qs.onrender.com/")
+    axios.get("http://localhost:5000/")
       .then(response => {
         setitemsarray(response.data);
         

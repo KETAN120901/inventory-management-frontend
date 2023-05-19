@@ -7,7 +7,7 @@ import SearchItem from '../components/SearchItem';
 function Home() {
   const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
-    axios.get('https://inventory-manager-api-h3qs.onrender.com/')
+    axios.get('http://localhost:5000/')
       .then(response => {
         setitemsarray(response.data);
         
@@ -47,7 +47,7 @@ function Home() {
   }
   function handleClick(event){
    item.tbuy=(item.price-'0')*(item.quantity-'0')
-    axios.post('https://inventory-manager-api-h3qs.onrender.com/', item)
+    axios.post('http://localhost:5000/', item)
   .then(response => {
     // console.log('Response from server:', response.data);
   })

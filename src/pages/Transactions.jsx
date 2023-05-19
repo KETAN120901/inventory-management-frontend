@@ -13,7 +13,7 @@ function Transactions(){
     const [profit,setprofit]=useState(0);
     useEffect(() => {
         
-        axios.get('https://inventory-manager-api-h3qs.onrender.com/sell')
+        axios.get('http://localhost:5000/sell')
           .then(response => {
             settransactionsarray(response.data)
             

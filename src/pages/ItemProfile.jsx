@@ -19,7 +19,7 @@ function ItemProfile(props){
     // console.log(params)
     const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
-    axios.get('https://inventory-manager-api-h3qs.onrender.com/')
+    axios.get('http://localhost:5000/')
       .then(response => {
         setitemsarray(response.data);
         
@@ -37,7 +37,7 @@ function ItemProfile(props){
 const [transactionsarray,settransactionsarray]=useState([]);
 useEffect(() => {
     
-    axios.get('https://inventory-manager-api-h3qs.onrender.com/sell')
+    axios.get('http://localhost:5000/sell')
       .then(response => {
         settransactionsarray(response.data)
         

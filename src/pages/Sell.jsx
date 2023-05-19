@@ -13,7 +13,7 @@ function Sell() {
   const [customersarray,setcustomersarray] = useState([]);
   
   useEffect(() => {
-    axios.get('https://inventory-manager-api-h3qs.onrender.com/')
+    axios.get('http://localhost:5000/')
       .then(response => {
         setitemsarray(response.data);
         
@@ -29,7 +29,7 @@ function Sell() {
   }, []);
   
   useEffect(() => {
-  axios.get('https://inventory-manager-api-h3qs.onrender.com/customers')
+  axios.get('http://localhost:5000/customers')
   .then(response => {
     setcustomersarray(response.data);
     
@@ -106,7 +106,7 @@ function Sell() {
     item.BuyingPrice=option[0].price;
     
     item.profit=(item.quantity)*(item.SellingPrice-item.BuyingPrice);
-    axios.post('https://inventory-manager-api-h3qs.onrender.com/sell', item)
+    axios.post('http://localhost:5000/sell', item)
   .then(response => {
     console.log('Response from server:', response.data);
     
@@ -128,7 +128,7 @@ function Sell() {
   
   
 
-  axios.put('https://inventory-manager-api-h3qs.onrender.com/',item1).
+  axios.put('http://localhost:5000/',item1).
   then(response => {
     console.log(response.data)
     
@@ -147,7 +147,7 @@ function Sell() {
   
   
 
-  axios.put('https://inventory-manager-api-h3qs.onrender.com/updatecustomer',customer1).
+  axios.put('http://localhost:5000/updatecustomer',customer1).
   then(response => {
     console.log(response.data)
     
