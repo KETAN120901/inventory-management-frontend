@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import axios from "axios";
 function Nav(){
   const [options, setOptions] = useState([]);
-
+  
   useEffect(() => {
     // Load options from API when component mounts
     axios.get('https://inventory-manager-api-h3qs.onrender.com')

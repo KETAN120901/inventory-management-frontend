@@ -5,7 +5,7 @@ import Sidebar from './Sidebar';
 import axios from 'axios';
 function Navbar() {
   const [isCollapsed1, setIsCollapsed1] = useState(false);
-
+  
   const handleToggle1 = () => {
     setIsCollapsed1(!isCollapsed1);
   };
@@ -34,7 +34,7 @@ function Navbar() {
   const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
     
-    axios.get("https://inventory-manager-api-h3qs.onrender.com/")
+    axios.get("https://inventory-manager-api-h3qs.onrender.com")
       .then(response => {
         setitemsarray(response.data);
         
