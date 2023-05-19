@@ -1,0 +1,5 @@
+buildCommand: npm run build
+buildDir: build
+buildFilters:
+  - '/public/**'
+  - '!/public/index.html'
