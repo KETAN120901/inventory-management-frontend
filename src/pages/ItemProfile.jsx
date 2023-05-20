@@ -51,7 +51,7 @@ useEffect(() => {
 
   
   const filteredOptions = transactionsarray.filter(option => option.itemName===params.name);
-  filteredOptions.reverse()
+  // filteredOptions.reverse()
 
  var item={name:"",price:"",quantity:""}
   {itemsarray.filter(item => item.name===params.name).map(filteredItem => (
@@ -110,7 +110,12 @@ useEffect(() => {
         i++
       ))
       
-  
+      const array=[];
+      var k=0;
+      for(let i=filteredOptions.length-1;i>=0;i--){
+array[k]=filteredOptions[i];
+k++;
+      }
       
     return (<div className="itemprofile">
           
@@ -150,11 +155,11 @@ useEffect(() => {
           <thead>
         <tr><td>Date/Time</td><td>Customer</td><td>Item</td><td>BuyingPrice</td><td>SellingPrice</td><td>Quantity</td><td>Profit</td></tr>
     </thead>
-    {filteredOptions.map((transaction) => (
+    {array.map((transaction) => (
         <tr>
             <td>{transaction.datetime}</td>
-            <td>{transaction.customerName}</td>
-            <td>{transaction.itemName}</td>
+            <td><Link to={"/customers/"+transaction.customerName}>{transaction.customerName}</Link></td>
+            <td><Link to={"/items/"+transaction.itemName}>{transaction.itemName}</Link></td>
             <td>{transaction.BuyingPrice}</td>
             <td>{transaction.SellingPrice}</td>
             <td>{transaction.quantity}</td>

@@ -20,7 +20,7 @@ function CustomerProfile(props){
     // search in db, search through products, 
     const [itemsarray,setitemsarray] = useState([]);
     useEffect(() => {
-      axios.get('http://localhost:5000/customers')
+      axios.get('https://inventory-manager-api-h3qs.onrender.com/customers')
         .then(response => {
           setitemsarray(response.data);
           
@@ -46,9 +46,9 @@ function CustomerProfile(props){
         
       }, []);
 
-      transactionsarray.reverse();
+      // transactionsarray.reverse();
       const filteredOptions = transactionsarray.filter(option => option.customerName===params.name);
-    var customer={customerName:"",fathername:"",village:""}
+    var customer={customerName:"",fatherName:"",village:""}
   {itemsarray.filter(item => item.customerName.includes(params.name)).map(filteredItem => (
     customer=filteredItem
   ))}
@@ -105,6 +105,15 @@ function CustomerProfile(props){
         tbuy+=t.BuyingPrice*t.quantity,
         i++
       ))
+      const array=[];
+      var k=0;
+      for(let i=filteredOptions.length-1;i>=0;i--){
+array[k]=filteredOptions[i];
+k++;
+      }
+     
+      
+      
     return (<div className="customerprofile">
         <ul>
       <li>
@@ -133,20 +142,23 @@ function CustomerProfile(props){
  
  
         
-        <h1 style={{marginTop:'20px'}}>Item-Name : {params.name}</h1>
+        <div><h1 style={{marginTop:'20px'}}>Item-Name : {params.name}</h1>
         <h1 style={{marginTop:'20px'}}>Father-Name : {customer.fatherName}</h1>
         <h1 style={{marginTop:'20px'}}>Village : {customer.village}</h1>
+
+        </div>
+       
         <Line data={data} options={options} />
 
         <table>
         <thead>
         <tr><td>Date/Time</td><td>Customer</td><td>Item</td><td>BuyingPrice</td><td>SellingPrice</td><td>Quantity</td><td>Profit</td></tr>
     </thead>
-    {filteredOptions.map((transaction) => (
+    {array.map((transaction) => (
         <tr>
             <td>{transaction.datetime}</td>
-            <td>{transaction.customerName}</td>
-            <td>{transaction.itemName}</td>
+            <td><Link to={"/customers/"+transaction.customerName}>{transaction.customerName}</Link></td>
+            <td><Link to={"/items/"+transaction.itemName}>{transaction.itemName}</Link></td>
             <td>{transaction.BuyingPrice}</td>
             <td>{transaction.SellingPrice}</td>
             <td>{transaction.quantity}</td>

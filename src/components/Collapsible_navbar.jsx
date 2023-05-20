@@ -34,7 +34,7 @@ function Navbar() {
   const [itemsarray,setitemsarray] = useState([]);
   useEffect(() => {
     
-    axios.get("https://inventory-manager-api-h3qs.onrender.com")
+    axios.get("https://inventory-manager-api-h3qs.onrender.com/")
       .then(response => {
         setitemsarray(response.data);
         

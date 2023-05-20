@@ -5,6 +5,7 @@ import axios from "axios";
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { LinearScale } from 'chart.js';
+import { Link } from "react-router-dom";
 
 Chart.register(LinearScale);
 function Transactions(){
@@ -176,10 +177,11 @@ function Transactions(){
         <tr><td>Date/Time</td><td>Customer</td><td>Item</td><td>BuyingPrice</td><td>SellingPrice</td><td>Quantity</td><td>Profit</td></tr>
     </thead>
     {array.map((transaction) => (
+        
         <tr>
             <td>{transaction.datetime}</td>
-            <td>{transaction.customerName}</td>
-            <td>{transaction.itemName}</td>
+            <td><Link to={"/customers/"+transaction.customerName}>{transaction.customerName}</Link> </td>
+            <td><Link to={"/items/"+transaction.itemName}>{transaction.itemName}</Link> </td>
             <td>{transaction.BuyingPrice}</td>
             <td>{transaction.SellingPrice}</td>
             <td>{transaction.quantity}</td>

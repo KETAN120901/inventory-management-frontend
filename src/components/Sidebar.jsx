@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import './styles.css'
+import './styles.css';
+import { Link } from "react-router-dom";
  function Sidebar(){
     const [customersarray,setcustomersarray] = useState([]);
   useEffect(() => {
@@ -44,7 +45,7 @@ import './styles.css'
     </thead>
     {sorteditems.map((item) => (
         <tr>
-            <td>{item.name}</td>
+            <td><Link to={"/items/"+item.name}>{item.name}</Link></td>
             <td>{item.tbuy}</td>
             <td>{item.tsell}</td>
             <td>{item.tpro}</td>
@@ -64,7 +65,7 @@ import './styles.css'
     </thead>
     {sortedcustomers.map((customer) => (
         <tr>
-            <td>{customer.customerName}</td>
+            <td><Link to={"/customers/"+customer.customerName}>{customer.customerName}</Link></td>
             <td>{customer.tbuy}</td>
             <td>{customer.tsell}</td>
             <td>{customer.tpro}</td>

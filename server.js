@@ -1,9 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
-
 const app = express();
-
 // Serve static files from the 'build' directory
 app.use(express.static(path.join(__dirname, 'build')));
 const PORT=process.env.PORT || 3000;
@@ -11,8 +9,6 @@ const PORT=process.env.PORT || 3000;
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-
-// Start the server
 app.listen(PORT, () => {
-    console.log(`listening on ${PORT}"`);
+    console.log(`listening on ${PORT}`);
   });
